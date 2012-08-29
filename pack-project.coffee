@@ -24,16 +24,21 @@ module.exports =
       files : [
         'packflow'
         'packer'
+        'step-processor'
+        'util'
         'processors/sequence'
+        'processors/waterfall'
+        'processors/combine-file'
         'processors/compile-coffee'
         'processors/uglify-js'
         'processors/compile-less'
+        'processors/copy-file'
       ]
 
     'compress-js' :
       type : 'uglify-js'
       outputPath : './lib'
-      outputFileName : '${fileName}.min.js'
+      outputFileNameFormat : '${fileName}.min.js'
 
     'copy-readme' :
       type : 'copy-file'

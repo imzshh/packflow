@@ -11,7 +11,7 @@ class StepProcessor
     basePath = @_packer.getBasePath()
     inputPath = Path.join basePath, @_step.inputPath
     outputPath = Path.join basePath, @_step.outputPath
-    outputFileName = @_step.outputFileName
+    outputFileNameFormat = @_step.outputFileNameFormat
     options = @_step.options
 
     Async.series [ (callback) =>
@@ -22,7 +22,7 @@ class StepProcessor
           inputPath : inputTaskResult.inputPath
           outputPath : outputPath
           fileName : inputTaskResult.fileName
-          outputFileName : outputFileName
+          outputFileNameFormat : outputFileNameFormat
           options : options
           content : inputTaskResult.content
 
@@ -43,7 +43,7 @@ class StepProcessor
           inputPath : inputPath
           outputPath : outputPath
           fileName : fileName
-          outputFileName : outputFileName
+          outputFileNameFormat : outputFileNameFormat
           options : options
 
         @processTask task, (err, result) ->

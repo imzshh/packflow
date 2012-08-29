@@ -21,10 +21,10 @@ class UglifyJSStepProcessor extends StepProcessor
 
     uglifiedContent = __doUglify fileContent
 
-    if not task.outputFileName
+    if not task.outputFileNameFormat
       outputFileName = task.fileName + '.js'
     else
-      outputFileName = task.outputFileName.replace '${fileName}', task.fileName
+      outputFileName = task.outputFileNameFormat.replace '${fileName}', task.fileName
     outputFullName = Path.join task.outputPath, outputFileName
 
     Util.ensureDirOfFileExistsSync outputFullName

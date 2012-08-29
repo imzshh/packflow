@@ -2,6 +2,8 @@ Fs = require 'fs'
 Path = require 'path'
 
 exports.ensureDirExistsSync = (dirPath) ->
+  if Fs.existsSync dirPath then return
+
   dirsToMake = []
 
   while not Fs.existsSync dirPath
@@ -15,7 +17,7 @@ exports.ensureDirExistsSync = (dirPath) ->
       dirPath = dirPath.substr 0, lastIndexOfSep
 
   while dirsToMake.length
-    dirName = dirsToMake.shift()
+    dirName = dirsToMake.pop()
 
     dirPath = Path.join dirPath, dirName
     Fs.mkdirSync dirPath
