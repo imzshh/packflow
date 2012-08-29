@@ -29,8 +29,11 @@ class CompileLessStepProcessor extends StepProcessor
       if err then return callback err
 
       outputFullName = Path.join task.outputPath, task.fileName + '.css'
-      Util.ensureDirOfFileExistsSync outputFullName
-      Fs.writeFileSync outputFullName, compiledContent
+
+      if task.writeFile
+        Util.ensureDirOfFileExistsSync outputFullName
+        Fs.writeFileSync outputFullName, compiledContent
+
       taskResult =
         outputPath : task.outputPath
         fileName : task.fileName

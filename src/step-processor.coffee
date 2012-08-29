@@ -22,6 +22,7 @@ class StepProcessor
           inputPath : inputTaskResult.inputPath
           outputPath : outputPath
           fileName : inputTaskResult.fileName
+          writeFile : @_step.writeFile
           outputFileNameFormat : outputFileNameFormat
           options : options
           content : inputTaskResult.content
@@ -43,6 +44,7 @@ class StepProcessor
           inputPath : inputPath
           outputPath : outputPath
           fileName : fileName
+          writeFile : @_step.writeFile
           outputFileNameFormat : outputFileNameFormat
           options : options
 

@@ -28,11 +28,13 @@ module.exports =
         'util'
         'processors/sequence'
         'processors/waterfall'
+        'processors/combine'
         'processors/combine-file'
         'processors/compile-coffee'
         'processors/uglify-js'
         'processors/compile-less'
         'processors/copy-file'
+        'processors/wrap-text'
       ]
 
     'compress-js' :

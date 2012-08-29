@@ -15,8 +15,9 @@ class CompileCoffeeStepProcessor extends StepProcessor
     compiledContent = CoffeeScript.compile fileContent, bare:true
     outputFullName = Path.join task.outputPath, task.fileName + '.js'
 
-    Util.ensureDirOfFileExistsSync outputFullName
-    Fs.writeFileSync outputFullName, compiledContent
+    if task.writeFile
+      Util.ensureDirOfFileExistsSync outputFullName
+      Fs.writeFileSync outputFullName, compiledContent
 
     taskResult =
       outputPath : task.outputPath
