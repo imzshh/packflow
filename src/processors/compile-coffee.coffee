@@ -12,7 +12,8 @@ class CompileCoffeeStepProcessor extends StepProcessor
       inputFullName = Path.join task.inputPath, task.fileName + '.coffee'
       fileContent = Fs.readFileSync inputFullName, 'utf-8'
 
-    compiledContent = CoffeeScript.compile fileContent, bare:true
+    bare = task.options && task.options.bare
+    compiledContent = CoffeeScript.compile fileContent, bare : bare
     outputFullName = Path.join task.outputPath, task.fileName + '.js'
 
     if task.writeFile

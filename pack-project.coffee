@@ -39,6 +39,7 @@ module.exports =
 
     'compress-js' :
       type : 'uglify-js'
+      writeFile : true
       outputPath : './lib'
       outputFileNameFormat : '${fileName}.min.js'
 

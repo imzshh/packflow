@@ -1,7 +1,7 @@
 {
   "name": "packflow",
   "description" : "You write, I pack.",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "author": "Fossil Jue <imzshh@gmail.com>",
   "repository": {"type": "git", "url": "git://github.com/imzshh/packflow.git"},
   "dependencies": {
