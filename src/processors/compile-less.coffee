@@ -23,6 +23,7 @@ class CompileLessStepProcessor extends StepProcessor
     if task.content
       fileContent = task.content
     else
+      @registerFileRead inputFullName
       fileContent = Fs.readFileSync inputFullName, 'utf-8'
 
     __compileLess fileContent, inputFullName, (err, compiledContent) ->

@@ -24,6 +24,7 @@ class CopyFileStepProcessor extends StepProcessor
     outputFullName = Path.join task.outputPath, task.fileName
 
     console.log 'copy file: ' + inputFullName + ' -> ' + outputFullName
+    @registerFileRead inputFullName
     __copyFile inputFullName, outputFullName, (err) ->
       if err then return callback err
 

@@ -5,8 +5,12 @@ __getStepProcessor = (packer, step) ->
 class Packer
   constructor : (project, basePath) ->
     @_project = project
-    @_stepResult = {}
     @_basePath = basePath || process.cwd()
+    @clean()
+
+  clean : ->
+    @_stepResult = {}
+    @_filesRead = []
 
   processStep : (stepName, input, callback) ->
     result = @_stepResult[stepName]
@@ -24,8 +28,17 @@ class Packer
       @_stepResult[stepName] = result
       callback null, result
 
+  getProject : ->
+    @_project
+
   getBasePath : ->
     @_basePath
+
+  getFilesRead : ->
+    @_filesRead
+
+  registerFileRead : (filePath) ->
+    @_filesRead.push filePath
 
 module.exports = Packer
   

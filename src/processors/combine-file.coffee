@@ -24,6 +24,7 @@ class CombineFileStepProcessor extends StepProcessor
           inputFileName = inputFileNameFormat.replace '${fileName}', inputFileName
 
         inputFullName = Path.join inputPath, inputFileName
+        @registerFileRead inputFullName
         combinedContent += Fs.readFileSync(inputFullName, 'utf-8') + '\n'
 
       if writeFile

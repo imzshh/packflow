@@ -6,6 +6,12 @@ class StepProcessor
     @_packer = packer
     @_step = step
 
+  getPacker : ->
+    @_packer
+
+  registerFileRead : (fileFullName) ->
+    @_packer.registerFileRead fileFullName
+
   process : (input, callback) ->
     output = []
     basePath = @_packer.getBasePath()

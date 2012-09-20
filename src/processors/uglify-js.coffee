@@ -17,6 +17,7 @@ class UglifyJSStepProcessor extends StepProcessor
       fileContent = task.content
     else
       inputFullName = Path.join task.inputPath, task.fileName + '.js'
+      @registerFileRead inputFullName
       fileContent = Fs.readFileSync inputFullName, 'utf-8'
 
     uglifiedContent = __doUglify fileContent

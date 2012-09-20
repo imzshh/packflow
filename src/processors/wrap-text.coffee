@@ -17,6 +17,7 @@ class WrapTextStepProcessor extends StepProcessor
       fileContent = task.content
     else
       inputFullName = Path.join task.inputPath, task.fileName
+      @registerFileRead inputFullName
       fileContent = Fs.readFileSync inputFullName, 'utf-8'
 
     options = task.options

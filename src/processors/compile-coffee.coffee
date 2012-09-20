@@ -10,6 +10,7 @@ class CompileCoffeeStepProcessor extends StepProcessor
       fileContent = task.content
     else
       inputFullName = Path.join task.inputPath, task.fileName + '.coffee'
+      @registerFileRead inputFullName
       fileContent = Fs.readFileSync inputFullName, 'utf-8'
 
     bare = task.options && task.options.bare
