@@ -33,11 +33,14 @@ class StepProcessor
           options : options
           content : inputTaskResult.content
 
-        @processTask task, (err, result) ->
-          if err then return callback err
+        try
+          @processTask task, (err, result) ->
+            if err then return callback err
 
-          if result then output.push result
-          callback()
+            if result then output.push result
+            callback()
+        catch err
+          callback err
         
       , callback
 
@@ -63,7 +66,7 @@ class StepProcessor
       , callback
     
     ], (err) ->
-      if err then return callabck err
+      if err then return callback err
 
       callback null, output
 

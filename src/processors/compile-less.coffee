@@ -12,8 +12,11 @@ __compileLess = (data, fileName, callback) ->
   .parse data, (err, tree) ->
     if err then return callback err
 
-    css = tree.toCSS
-      compress : true
+    try
+      css = tree.toCSS
+        compress : true
+    catch err
+      callback new Error 'compile less error: ' + err.message
 
     callback null, css
 

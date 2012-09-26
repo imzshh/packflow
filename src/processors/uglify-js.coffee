@@ -20,7 +20,10 @@ class UglifyJSStepProcessor extends StepProcessor
       @registerFileRead inputFullName
       fileContent = Fs.readFileSync inputFullName, 'utf-8'
 
-    uglifiedContent = __doUglify fileContent
+    try
+      uglifiedContent = __doUglify fileContent
+    catch err
+      callback new Error 'uglify js error: ' + err.message
 
     if not task.outputFileNameFormat
       outputFileName = task.fileName + '.js'
