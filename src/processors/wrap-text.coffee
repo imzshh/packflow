@@ -23,6 +23,10 @@ class WrapTextStepProcessor extends StepProcessor
     options = task.options
     prefix = options.prefix || ''
     suffix = options.suffix || ''
+
+    prefix = prefix.replace '${fileName}', task.fileName
+    suffix = suffix.replace '${fileName}', task.fileName
+
     wrapedContent = prefix + fileContent + suffix
 
     if not task.outputFileNameFormat

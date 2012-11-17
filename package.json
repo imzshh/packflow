@@ -1,11 +1,12 @@
 {
   "name": "packflow",
   "description" : "You write, I pack.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Fossil Jue <imzshh@gmail.com>",
   "repository": {"type": "git", "url": "git://github.com/imzshh/packflow.git"},
   "dependencies": {
     "async" : "*"
+    ,"commander" : "1.1.0"
     ,"coffee-script" : "*"
     ,"uglify-js" : "*"
     ,"less" : "*"
@@ -13,6 +14,9 @@
   "devDependencies": {
   },
   "main": "./lib/packflow.js",
+  "bin": {
+    "packflow" : "./bin/packflow"
+  },
   "contributors": [
     "Fossil Jue <imzshh@gmail.com>"
   ]

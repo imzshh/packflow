@@ -3,9 +3,12 @@ __getStepProcessor = (packer, step) ->
   new processorCls packer, step
 
 class Packer
-  constructor : (project, basePath) ->
+  constructor : (project, options) ->
+    options ?= {}
+
     @_project = project
-    @_basePath = basePath || process.cwd()
+    @_options = options
+    @_basePath = options.basePath || process.cwd()
     @clean()
 
   clean : ->
@@ -30,6 +33,9 @@ class Packer
 
   getProject : ->
     @_project
+
+  getOptions : ->
+    @_options
 
   getBasePath : ->
     @_basePath
