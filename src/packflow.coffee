@@ -9,7 +9,7 @@ packer = null
 
 exports.run = ->
   program = require 'commander'
-  program.version('0.2.0')
+  program.version('0.3.1')
     .option('-w, --watch', 'Watch changes of files be packed.')
     .parse(process.argv)
 
