@@ -1,6 +1,7 @@
 Packer = require './packer'
 fs = require 'fs'
 path = require 'path'
+require 'coffee-script'
 
 isPacking = false
 fileChanged = false
@@ -13,29 +14,9 @@ exports.run = ->
     .option('-w, --watch', 'Watch changes of files be packed.')
     .parse(process.argv)
 
-  fileName = path.resolve 'packflow'
-  console.log fileName
-  if fs.existsSync fileName + '.coffee'
-    script = """
-fs = require 'fs'
-packflowProject = require fs.realpathSync 'packflow.coffee'
-packflow = require 'packflow'
-packflow.pack packflowProject
-"""
-    options = ''
-    if program.watch
-      options += 'watch : true'
-
-    if options
-      script += ", {#{options}}"
-
-    CoffeeScript = require 'coffee-script'
-    CoffeeScript.run  script, filename : 'packflow.coffee'
-
-  else if fs.existsSync fileName + '.js'
-    packflowProject = require fs.realpathSync 'packflow.js'
-    exports.pack packflowProject,
-      watch : program.watch
+  packflowProject = require path.resolve process.cwd(), 'packflow'
+  exports.pack packflowProject,
+    watch : program.watch
 
 exports.pack = (project, options) ->
   packer = new Packer project, options
