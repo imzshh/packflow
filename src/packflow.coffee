@@ -11,7 +11,7 @@ packer = null
 exports.run = ->
   program = require 'commander'
   program.version('0.3.1')
-    .option('-m, --main [value]', 'The main step you want to run. Packflow will look up the main step defined in the packflow file if not specified.')
+    .option('-m, --main [main-step-name]', 'The main step you want to run. Packflow will look up the main step defined in the packflow file if not specified.')
     .option('-w, --watch', 'Watch changes of files be packed.')
     .parse(process.argv)
 
