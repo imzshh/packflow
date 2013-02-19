@@ -7,14 +7,14 @@ exports.ensureDirExistsSync = (dirPath) ->
   dirsToMake = []
 
   while not Fs.existsSync dirPath
-      lastIndexOfSep = dirPath.lastIndexOf '/'
+    lastIndexOfSep = dirPath.lastIndexOf '/'
 
-      if lastIndexOfSep is -1
-        break
+    if lastIndexOfSep is -1
+      break
 
-      dirName = dirPath.substr lastIndexOfSep + 1
-      dirsToMake.push dirName
-      dirPath = dirPath.substr 0, lastIndexOfSep
+    dirName = dirPath.substr lastIndexOfSep + 1
+    dirsToMake.push dirName
+    dirPath = dirPath.substr 0, lastIndexOfSep
 
   while dirsToMake.length
     dirName = dirsToMake.pop()
