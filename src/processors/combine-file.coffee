@@ -9,8 +9,8 @@ class CombineFileStepProcessor extends StepProcessor
   process : (input, callback) ->
     output = []
     basePath = @_packer.getBasePath()
-    inputPath = Path.join basePath, @_step.inputPath
-    outputPath = Path.join basePath, @_step.outputPath
+    inputPath = Path.join basePath, @_step.inputPath || ''
+    outputPath = Path.join basePath, @_step.outputPath || ''
     writeFile = @_step.writeFile
     options = @_step.options
 
